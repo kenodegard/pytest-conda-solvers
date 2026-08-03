@@ -110,6 +110,7 @@ class UnsatisfiableTestError(
     forbid_unknown_fields=True,
 ):
     entries: str | list[str | list[str]]
+    message_excludes: str | list[str] = []
 
 
 class ResolvePackageNotFoundTestError(
