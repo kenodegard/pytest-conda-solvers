@@ -25,6 +25,18 @@ This [pytest] plugin was generated with [Cookiecutter] along with [@hackebrot]'s
 
 - TODO
 
+## Error assertion semantics
+
+For unsatisfiable tests, this suite deliberately asserts more than conda's own
+test suite does when running under conda-libmamba-solver. Upstream's
+`assert_unsatisfiable` helper only checks the exception is an
+`UnsatisfiableError` subclass there, because its entries comparison is gated on
+the exact `UnsatisfiableError` type. Our runner additionally checks that the
+endpoint package names of each expected conflict chain appear in the libmamba
+error message, and `message_includes`/`message_excludes` fields in the YAML add
+further content checks. This strengthening is intentional: cross-solver
+consistency of error reporting is part of what this plugin exists to verify.
+
 ## Requirements
 
 - TODO
