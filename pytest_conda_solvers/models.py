@@ -111,6 +111,17 @@ class UnsatisfiableTestError(
 ):
     entries: str | list[str | list[str]]
     message_excludes: str | list[str] = []
+    message_includes: str | list[str] = []
+
+
+class PackagesNotFoundTestError(
+    Struct,
+    tag_field="exception",
+    tag="PackagesNotFoundError",
+    frozen=True,
+    forbid_unknown_fields=True,
+):
+    entries: str | list[str | list[str]]
 
 
 class ResolvePackageNotFoundTestError(
@@ -137,6 +148,7 @@ class SpecsConfigurationConflictTestError(
 type TestError = (
     UnsatisfiableTestError
     | ResolvePackageNotFoundTestError
+    | PackagesNotFoundTestError
     | SpecsConfigurationConflictTestError
 )
 
