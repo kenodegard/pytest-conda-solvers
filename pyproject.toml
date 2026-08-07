@@ -103,6 +103,7 @@ platforms = ["linux-64", "osx-64", "osx-arm64", "win-64"]
 [tool.pixi.dependencies]
 conda = ">=26.3.0"
 conda-libmamba-solver = ">=26.4.0"
+conda-rattler-solver = ">=0.1.1,<0.2"
 fastapi = "*"
 fastapi-cache2 = "*"
 httpx = "*"
@@ -118,4 +119,5 @@ pytest-conda-solvers = {path = ".", editable = true}
 generate-schema = "python -m pytest_conda_solvers.cli"
 test-classic-solver = "pytest --conda-solver=classic conda-solver-tests tests/test_provenance.py"
 test-libmamba-solver = "pytest --conda-solver=libmamba conda-solver-tests tests/test_provenance.py"
+test-rattler-solver = "pytest --conda-solver=rattler conda-solver-tests tests/test_provenance.py"
 update-provenance = "python tools/update_provenance.py"
